@@ -282,6 +282,19 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.1</version>
+          <extensions>true</extensions>
+          <configuration>
+            <!-- The Base URL of Nexus instance where we want to stage -->
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <!-- The server "id" element from settings to use authentication from -->
+            <serverId>ossrh</serverId>
+            <stagingProfileId>150e3b0db7701</stagingProfileId>
+          </configuration>
+        </plugin>
+        <plugin>
           <artifactId>build-helper-maven-plugin</artifactId>
           <version>1.5</version>
         </plugin>
@@ -308,10 +321,6 @@
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>2.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.5</version>
         </plugin>
         <plugin>
           <artifactId>maven-ear-plugin</artifactId>
@@ -354,8 +363,8 @@
           <version>2.2</version>
         </plugin>
         <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>2.1</version>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.8</version>
         </plugin>
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
